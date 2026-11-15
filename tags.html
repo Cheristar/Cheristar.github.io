@@ -1,0 +1,7 @@
+---
+title: 标签
+description: 沿着标签，发现感兴趣的文章。
+---
+<header class="page-heading"><span class="eyebrow">FIND YOUR THREAD</span><h1>沿着兴趣，随处翻翻。</h1><p>一些关键词，把零散的记录连成线。</p></header>
+<div class="tag-cloud">{% assign sorted_tags = site.tags | sort %}{% for tag in sorted_tags %}<a href="#{{ tag[0] | slugify: 'raw' | uri_escape }}"># {{ tag[0] | escape }} <span>{{ tag[1].size }}</span></a>{% endfor %}</div>
+{% for tag in sorted_tags %}<section class="tag-section" id="{{ tag[0] | slugify: 'raw' | escape }}"><h2># {{ tag[0] | escape }}</h2>{% for post in tag[1] %}<a class="archive-row" href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time><span>{{ post.title | escape }}</span><span aria-hidden="true">↗</span></a>{% endfor %}</section>{% endfor %}

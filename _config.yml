@@ -1,0 +1,30 @@
+title: Cheristar
+tagline: 记录，思考，然后继续探索。
+description: Cheristar 的个人博客，记录学习与技术、生活随笔和摄影。
+url: https://cheristar.github.io
+baseurl: ""
+lang: zh-CN
+timezone: Asia/Shanghai
+permalink: /posts/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+future: false
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: default
+      author: Cheristar
+exclude:
+  - README.md
+  - preview
+  - tools
+  - Gemfile
+  - Gemfile.lock

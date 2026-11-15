@@ -1,0 +1,7 @@
+---
+title: 归档
+description: 按时间翻阅 Cheristar 的所有文章。
+---
+<header class="page-heading"><span class="eyebrow">THE ARCHIVE</span><h1>写过的，都在这里。</h1><p>时间向前走，文字留下来。共 {{ site.posts.size }} 篇手记。</p></header>
+{% assign groups = site.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}
+{% for group in groups %}<section class="archive-year"><h2>{{ group.name }}<span>{{ group.items.size }} 篇</span></h2><div>{% for post in group.items %}<a class="archive-row" href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%m.%d' }}</time><span>{{ post.title | escape }}</span><span aria-hidden="true">↗</span></a>{% endfor %}</div></section>{% endfor %}
